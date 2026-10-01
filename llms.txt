@@ -1,0 +1,40 @@
+# GroundTruth — 2026 US Tariff & Landed-Cost Data
+
+> Source-linked US import duty rates, MPF/HMF fees and total landed cost by product and origin country. Updated 2026-10-01. Planning estimates, not a CBP entry.
+
+## What is this site
+Real 2026 US customs duty data broken down by:
+- **Product**: 209 concrete products across 13 categories (apparel, electronics, steel, solar, batteries, auto, toys, jewelry, semiconductors, lumber, general)
+- **Origin**: China (CN), Vietnam (VN), India (IN), Mexico (MX), Other
+- **Fee layers**: MFN rate + Section 301 (China) + Section 232 (national security) + forced-labor base
+
+## Key pages
+- [Home](https://contentforge-press.github.io/us-tariff-data/): Browse all products and origins
+- [Guides](https://contentforge-press.github.io/us-tariff-data/guides.html): MPF, HMF, Section 301/232, landed cost explainers
+- [HTS chapters](https://contentforge-press.github.io/us-tariff-data/hts-chapters.html): Duty rates by HTS chapter
+- [Free calculator](https://contentforge-press.github.io/groundtruth-calculator/): Browser-based landed cost calculator
+- [API & MCP](https://dytsk9wrfv.page.coze.site/groundtruth.html): Live API for AI agents and apps
+
+## Tariff rate structure (2026)
+Each product page shows the stacked duty rate:
+1. MFN (normal trade) rate — base WTO rate
+2. Section 301 — additional 25% on most China-origin goods
+3. Section 232 — national security duty on steel (50%), autos (25%), semiconductors (25%), lumber (10%)
+4. Forced-labor / security base — 12.5% on China, 12.5% on Vietnam, 10% on India/Mexico/Other
+5. MPF — 0.3% of value (min $34.58, max $670.86)
+6. HMF — 0.1% of value, ocean freight only
+
+## API access
+- REST: GET https://winter-river-47fc.contentforge-press.workers.dev/v1/tariff?product_description=&origin_code=CN&declared_value=1000 (requires x-api-key)
+- Free trial: GET https://winter-river-47fc.contentforge-press.workers.dev/try?product_description=cotton+t-shirt&origin_code=CN&declared_value=100 (no key, 200/day/IP)
+- MCP: POST https://winter-river-47fc.contentforge-press.workers.dev/mcp (Streamable HTTP, anonymous rate-limited)
+- OpenAPI: GET https://winter-river-47fc.contentforge-press.workers.dev/openapi.json
+
+## Data sources
+- HTS codes: https://hts.usitc.gov/
+- China tariff rates: https://www.tariffstool.com/guides/china-tariff-rate
+- MPF/HMF fees: https://blogs.tradlinx.com/cbp-customs-fees-rise-on-october-1-heres-what-actually-changes/
+- CBP guidelines: https://www.cbp.gov/trade/basic-import-export/importer-examination-forms-and-guidelines
+
+## Licenses / attribution
+Free with attribution. Paid plans remove attribution requirement.

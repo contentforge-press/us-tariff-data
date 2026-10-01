@@ -1,0 +1,272 @@
+# GroundTruth — 2026 US Tariff & Landed-Cost Data
+
+> Source-linked US import duty rates, MPF/HMF fees and total landed cost by product and origin country. Updated 2026-10-01. Planning estimates, not a CBP entry.
+
+## What is this site
+Real 2026 US customs duty data broken down by:
+- **Product**: 209 concrete products across 13 categories (apparel, electronics, steel, solar, batteries, auto, toys, jewelry, semiconductors, lumber, general)
+- **Origin**: China (CN), Vietnam (VN), India (IN), Mexico (MX), Other
+- **Fee layers**: MFN rate + Section 301 (China) + Section 232 (national security) + forced-labor base
+
+## Key pages
+- [Home](https://contentforge-press.github.io/us-tariff-data/): Browse all products and origins
+- [Guides](https://contentforge-press.github.io/us-tariff-data/guides.html): MPF, HMF, Section 301/232, landed cost explainers
+- [HTS chapters](https://contentforge-press.github.io/us-tariff-data/hts-chapters.html): Duty rates by HTS chapter
+- [Free calculator](https://contentforge-press.github.io/groundtruth-calculator/): Browser-based landed cost calculator
+- [API & MCP](https://dytsk9wrfv.page.coze.site/groundtruth.html): Live API for AI agents and apps
+
+## Tariff rate structure (2026)
+Each product page shows the stacked duty rate:
+1. MFN (normal trade) rate — base WTO rate
+2. Section 301 — additional 25% on most China-origin goods
+3. Section 232 — national security duty on steel (50%), autos (25%), semiconductors (25%), lumber (10%)
+4. Forced-labor / security base — 12.5% on China, 12.5% on Vietnam, 10% on India/Mexico/Other
+5. MPF — 0.3% of value (min $34.58, max $670.86)
+6. HMF — 0.1% of value, ocean freight only
+
+## API access
+- REST: GET https://winter-river-47fc.contentforge-press.workers.dev/v1/tariff?product_description=&origin_code=CN&declared_value=1000 (requires x-api-key)
+- Free trial: GET https://winter-river-47fc.contentforge-press.workers.dev/try?product_description=cotton+t-shirt&origin_code=CN&declared_value=100 (no key, 200/day/IP)
+- MCP: POST https://winter-river-47fc.contentforge-press.workers.dev/mcp (Streamable HTTP, anonymous rate-limited)
+- OpenAPI: GET https://winter-river-47fc.contentforge-press.workers.dev/openapi.json
+
+## Data sources
+- HTS codes: https://hts.usitc.gov/
+- China tariff rates: https://www.tariffstool.com/guides/china-tariff-rate
+- MPF/HMF fees: https://blogs.tradlinx.com/cbp-customs-fees-rise-on-october-1-heres-what-actually-changes/
+- CBP guidelines: https://www.cbp.gov/trade/basic-import-export/importer-examination-forms-and-guidelines
+
+## Licenses / attribution
+Free with attribution. Paid plans remove attribution requirement.
+
+
+## Complete product rate table
+
+| Product | Category | MFN | Sec301(CN) | Sec232 | Total from CN | Total from VN | Total from IN |
+|---------|----------|-----|------------|--------|---------------|---------------|---------------|
+| Cotton t-shirt | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Men's dress shirt | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Running shoes | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Denim jeans | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Leather handbag | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Cotton hoodie | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Baseball cap | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Women's dress | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Winter jacket | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Cotton socks | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Knit sweater | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Leather belt | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Silk scarf | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Swimwear | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Baby clothes | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Smartphone | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Bluetooth earbuds | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Laptop computer | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Smartwatch | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Video game console | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Computer monitor | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Wireless headphones | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Bluetooth speaker | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Webcam | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Mechanical keyboard | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Computer mouse | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Tablet computer | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Smart tv | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Plastic kids toy | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Wooden puzzle | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Stuffed animal toy | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Board game | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Plastic building blocks set | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Remote control toy car | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Fashion doll | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Kitchen appliance | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Baby stroller | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Air conditioner | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Refrigerator | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Baby car seat | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Washing machine | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Microwave oven | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Vacuum cleaner | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Baby bottle | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Solar panel | Solar panels | 0% | 50% | 0% | 62.5% | 12.5% | 10% |
+| Solar inverter | Solar panels | 0% | 50% | 0% | 62.5% | 12.5% | 10% |
+| Lithium-ion battery | Lithium-ion battery | 3.4% | 25% | 0% | 40.9% | 15.9% | 13.4% |
+| Portable power bank | Lithium-ion battery | 3.4% | 25% | 0% | 40.9% | 15.9% | 13.4% |
+| Electric vehicle | Electric vehicle | 2.5% | 100% | 0% | 115.0% | 15% | 12.5% |
+| Electric bike | Electric vehicle | 2.5% | 100% | 0% | 115.0% | 15% | 12.5% |
+| Auto parts | Automobile / auto parts | 2.5% | 25% | 25% | 65% | 40% | 37.5% |
+| Car tire | Automobile / auto parts | 2.5% | 25% | 25% | 65% | 40% | 37.5% |
+| Brake pads | Automobile / auto parts | 2.5% | 25% | 25% | 65% | 40% | 37.5% |
+| Plywood sheets | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Wooden furniture | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Hardwood flooring | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Steel bolts | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Aluminum profile | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Copper wire | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Stainless steel sink | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Gold necklace | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Diamond ring | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Wrist watch | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Gold earrings | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Silver bracelet | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Semiconductor chip | Semiconductors | 0% | 50% | 25% | 87.5% | 37.5% | 35% |
+| Printed circuit board | Semiconductors | 0% | 50% | 25% | 87.5% | 37.5% | 35% |
+| Plastic household item | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Synthetic area rug | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Ceramic tableware | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Wool coat | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Linen shirt | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Leather jacket | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Cotton pajamas | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Yoga leggings | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Tennis shoes | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Leather sandals | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Rain boots | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Knit beanie | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Silk necktie | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Winter gloves | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Cotton tank top | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Denim jacket | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Flip flop sandals | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Wedding dress | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Polo shirt | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Men's tracksuit | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Cotton bathrobe | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Action camera | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| E-reader tablet | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Wifi router | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| External hard drive | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Camera drone | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Smart home speaker | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Graphics card | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Video projector | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Usb flash drive | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Sd memory card | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Vr headset | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Tv soundbar | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Smart video doorbell | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Home security camera | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Noise cancelling headphones | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Jigsaw puzzle | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Toy dump truck | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Plush teddy bear | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Baby rattle | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Toy guitar | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Remote control helicopter | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Playing card game | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Toy kitchen play set | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Water squirt gun | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Dishwasher | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Coffee maker | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Bread toaster | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Countertop blender | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Air purifier | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Electric kettle | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Rice cooker | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Baby high chair | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Baby audio monitor | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Room humidifier | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Ceiling fan | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Hair dryer | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Solar battery storage | Solar panels | 0% | 50% | 0% | 62.5% | 12.5% | 10% |
+| Solar water heater | Solar panels | 0% | 50% | 0% | 62.5% | 12.5% | 10% |
+| Portable solar panel | Solar panels | 0% | 50% | 0% | 62.5% | 12.5% | 10% |
+| Solar power charger | Solar panels | 0% | 50% | 0% | 62.5% | 12.5% | 10% |
+| Rechargeable batteries | Lithium-ion battery | 3.4% | 25% | 0% | 40.9% | 15.9% | 13.4% |
+| Car battery | Lithium-ion battery | 3.4% | 25% | 0% | 40.9% | 15.9% | 13.4% |
+| Battery charger | Lithium-ion battery | 3.4% | 25% | 0% | 40.9% | 15.9% | 13.4% |
+| Lithium battery pack | Lithium-ion battery | 3.4% | 25% | 0% | 40.9% | 15.9% | 13.4% |
+| Electric scooter | Electric vehicle | 2.5% | 100% | 0% | 115.0% | 15% | 12.5% |
+| Electric motorcycle | Electric vehicle | 2.5% | 100% | 0% | 115.0% | 15% | 12.5% |
+| Electric golf cart | Electric vehicle | 2.5% | 100% | 0% | 115.0% | 15% | 12.5% |
+| Car battery charger | Automobile / auto parts | 2.5% | 25% | 25% | 65% | 40% | 37.5% |
+| Motorcycle helmet | Automobile / auto parts | 2.5% | 25% | 25% | 65% | 40% | 37.5% |
+| Engine motor oil | Automobile / auto parts | 2.5% | 25% | 25% | 65% | 40% | 37.5% |
+| Car audio speakers | Automobile / auto parts | 2.5% | 25% | 25% | 65% | 40% | 37.5% |
+| Windshield wiper blades | Automobile / auto parts | 2.5% | 25% | 25% | 65% | 40% | 37.5% |
+| Solid wood interior door | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Wooden dining table | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Solid timber beams | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Wood kitchen cabinets | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Wooden dining chair | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Mdf board | Lumber / wood | 0% | 25% | 10% | 47.5% | 22.5% | 20% |
+| Steel pipe | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Metal storage shelving | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Aluminum foil rolls | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Copper tubing | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Galvanized steel sheet | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Metal hand tools | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+| Pearl necklace | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Gold bracelet | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Diamond stud earrings | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Silver ring | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Gemstone pendant | Jewelry | 5.5% | 25% | 0% | 43% | 18% | 15.5% |
+| Microcontroller chip | Semiconductors | 0% | 50% | 25% | 87.5% | 37.5% | 35% |
+| Integrated circuit | Semiconductors | 0% | 50% | 25% | 87.5% | 37.5% | 35% |
+| Power transistor | Semiconductors | 0% | 50% | 25% | 87.5% | 37.5% | 35% |
+| Electronic sensor module | Semiconductors | 0% | 50% | 25% | 87.5% | 37.5% | 35% |
+| Plastic storage bin | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Glass vase | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Stainless steel cooking pot | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Cotton bath towel | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Wood picture frame | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Garden water hose | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Folding umbrella | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Yoga exercise mat | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| LED light bulb | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Phone case | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Laptop bag | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Travel backpack | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Stainless steel water bottle | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Pet dog bed | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Kitchen knife set | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Bed sheets set | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Shower curtain | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Wall clock | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Desk lamp | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Bluetooth trackpad | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| USB hub | Consumer electronics | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Portable blender | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Electric toothbrush | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Garment steamer | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Food processor | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Ice maker machine | Home appliances & baby products | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Leggings yoga pants | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Canvas sneakers | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Sun glasses | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Handbag purse | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Cashmere scarf | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Denim shorts | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Linen pants | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Nylon windbreaker jacket | Apparel & clothing | 16.5% | 25% | 0% | 54% | 29.0% | 26.5% |
+| Toy mini drone | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Stuffed plush animal | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Wooden building block set | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Kids bicycle | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Foam dart blaster gun | Toys & holiday gifts | 0% | 25% | 0% | 37.5% | 12.5% | 10% |
+| Stainless steel thermos flask | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Bamboo cutting board | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Ceramic coffee mug | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Cotton canvas tote bag | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Silicone baking mat | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Cast iron skillet | General merchandise | 3.5% | 25% | 0% | 41% | 16% | 13.5% |
+| Adult electric kick scooter | Electric vehicle | 2.5% | 100% | 0% | 115.0% | 15% | 12.5% |
+| E-bike lithium battery | Lithium-ion battery | 3.4% | 25% | 0% | 40.9% | 15.9% | 13.4% |
+| Aluminum window frame | Steel / aluminum / copper article | 0% | 25% | 50% | 75% | 50% | 50% |
+
+## All guides
+
+- [What Is the Merchandise Processing Fee (MPF)?](https://contentforge-press.github.io/us-tariff-data/guide-what-is-merchandise-processing-fee.html)
+- [What Is the Harbor Maintenance Fee (HMF)?](https://contentforge-press.github.io/us-tariff-data/guide-what-is-harbor-maintenance-fee.html)
+- [What Are Section 301 Tariffs?](https://contentforge-press.github.io/us-tariff-data/guide-what-is-section-301-tariff.html)
+- [What Are Section 232 Tariffs?](https://contentforge-press.github.io/us-tariff-data/guide-what-is-section-232-tariff.html)
+- [How to Calculate US Import Duty](https://contentforge-press.github.io/us-tariff-data/guide-how-to-calculate-import-duty.html)
+- [What Is Landed Cost?](https://contentforge-press.github.io/us-tariff-data/guide-what-is-landed-cost.html)
+- [What Is the MFN Rate?](https://contentforge-press.github.io/us-tariff-data/guide-mfn-duty-rate-explained.html)
+- [US Tariffs on China in 2026](https://contentforge-press.github.io/us-tariff-data/guide-china-tariff-rates-2026.html)
+- [HTS Code vs HS Code](https://contentforge-press.github.io/us-tariff-data/guide-hts-code-vs-hs-code.html)
+- [Importing from Vietnam: Duties & Fees](https://contentforge-press.github.io/us-tariff-data/guide-importing-from-vietnam-duties.html)
+- [US De Minimis Threshold (Section 321) in 2026](https://contentforge-press.github.io/us-tariff-data/guide-de-minimis-threshold-2026.html)
+- [How to Find the HTS Code for Your Product](https://contentforge-press.github.io/us-tariff-data/guide-how-to-find-hts-code-for-product.html)
+- [Section 301 China Tariff List 2026](https://contentforge-press.github.io/us-tariff-data/guide-china-section-301-tariff-list-2026.html)
+- [Import Duty from India to the US in 2026](https://contentforge-press.github.io/us-tariff-data/guide-import-duty-from-india-to-us.html)
